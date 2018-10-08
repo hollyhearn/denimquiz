@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Levis Style Quiz</title>
+<style>
+body {
+background-image: url("denim.jpg"); 
+background-size: cover; 
+font-family: Courier; 
+}
+
+#main {
+width: 80%;
+max-width: 750px;
+border: 1px gray solid;
+margin: auto;
+padding: 20px;
+background-color:white;
+border-radius: 10px;
+}
+
+input {
+width: 30px;
+margin-left: 20px;
+}
+
+h1 {
+	font-size:40px;
+	font-family:Helvetica;
+	font-style: italic;
+
+}
+
+h2 {
+font-size:26px;
+clear: both;
+padding-top: 20px;
+}
+
+button {
+width: 100px;
+margin-top: 20px;
+}
+
+input:checked + label img {
+  border:2px solid #000000;
+}
+
+img {
+	display: inline;
+}
+
+.intro {
+	font-size:18px;
+	font-family: Helvetica;
+
+}
+
+.question{
+	font-size:18px;
+	font-style: bold;
+}
+
+#form2 {
+display: none;
+}
+
+#form3 {
+display: none;
+}
+
+#form4 {
+display:none;
+}
+
+#form5 {
+display:none;
+}
+
+#form6 {
+display:none;
+}
+
+#form7 {
+	display:none;
+}
+
+#form8{
+	display:none;
+}
+
+</style>
+</head>
+
+<body>
+<div id="main">
+<h1>Levi's style quiz</h1>
+<p class="intro"> Are you interested in buying your first pair of Levi's and don't know where to start? Or maybe your looking for a replacement, but want to change the style up a bit. This quiz will help you find an ideal style ID for your favorite fit, body type and a few other preferences.</p>
+
+<form id="form1">
+<h2>Are you looking for men's or women's jeans?</h2>
+  <input name="image-pick" value="1" type="radio" id="one" style="display:none">
+    <label for="one">
+      <img src="menjeans.jpg">
+    </label>
+    <input name="image-pick" value="2" type="radio" id="two" style="display:none" >
+    <label for="two">
+      <img src="womenjeans.jpg" width:50%>
+    </label>    
+</form>
+    
+<form id="form2">
+<fieldset>
+<h2> Men's Quiz </h2> 
+<p>What fit are you interested in?</p>
+<label><input type="radio" name="fit" id="slim" value="10" />Tapered or Slim</label>
+<label><input type="radio" name="fit" id="regular" value="30" />Regular</label>
+<label><input type="radio" name="fit" id="relaxed" value="20" />Relaxed</label>
+</fieldset>
+</form>
+
+<form id="form4">
+<p>Where would you like your pants to sit?</p>
+<label><input type="radio" name="pantsit" id="atwaist" value="1" />At waist</label>
+<label><input type="radio" name="pantsit" id="below" value="3" />Below waist</label>
+<p>What best describes your body type?</p>
+<label><input type="radio" name="bodytype" id="thicc" value="2" />Large seat and/or thighs</label>
+<label><input type="radio" name="bodytype" id="average" value="3" />Average seat and/or thigh</label><br/>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<form id="form5">
+<p>Where would you like your pants to sit?</p>
+<label><input type="radio" name="pantsit" id="atwaist" value="2" />At waist</label>
+<label><input type="radio" name="pantsit" id="below" value="3" />Below waist</label><br/>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<form id="form6">
+<p>What do you prefer?</p>
+<label><input type="radio" name="zipbutt" id="zipper" value="1" />Zipper</label>
+<label><input type="radio" name="zipbutt" id="button" value="7" />Button</label>
+<label><input type="radio" name="zipbutt" id="either" value="3" />Either</label>
+<p>What best describes your body type?</p>
+<label><input type="radio" name="bodytype" id="thicc" value="2" />Large seat and/or thighs</label>
+<label><input type="radio" name="bodytype" id="average" value="3" />Average seat and/or thigh</label><br/>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+
+<!--end of mens quiz code-->
+
+<form id="form3" >
+<fieldset>
+<h2> Women's Quiz</h2> 
+<p>Would you like high rise or mid rise pants?</p>
+<label><input type="radio" name="risewomen" id="highrise" value="10" />High Rise</label>
+<label><input type="radio" name="risewomen" id="midrise" value="20" />Mid Rise</label>
+</fieldset>
+</form>
+
+<form id="form7">
+<p>What kind of tapering are you looking for?</p>
+<label><input type="radio" name="tapering" id="fitted" value="3" />Fitted</label>
+<label><input type="radio" name="tapering" id="flare" value="4" />Flare</label><br/>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<form id="form8">
+<p>What fit are you looking for?</p>
+<label><input type="radio" name="fitwomen" id="skinny" value="10" />Skinny</label>
+<label><input type="radio" name="fitwomen" id="straight" value="20" />Straight</label>
+<label><input type="radio" name="fitwomen" id="bootcut" value="30" />Bootcut</label>
+<p>How would you like your pants to fit?</p>
+<label><input type="radio" name="howfit" id="shapes" value="2" />Shapes through hip and thigh</label>
+<label><input type="radio" name="howfit" id="slim" value="3" />Slim through hip and thigh</label><br/>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<p id="grade"></p>
+<p id="grade2"></p>
+
+<!--end womens quiz code-->
+
+<!--mens or womens choice-->
+<script>
+	document.getElementById("form1").onchange=function() {
+		document.getElementById("form2").style.display = "none";
+		document.getElementById("form3").style.display = "none";
+	
+	choice=parseInt(document.querySelector('input[name="image-pick"]:checked').value);
+	
+
+	if(choice == 1) {
+		document.getElementById("form2").style.display = "block";
+	}
+	if (choice == 2) {
+		document.getElementById("form3").style.display = "block";
+	}
+	}
+</script>
+<!--Choosing fit and displaying rise for slim/relaxed and button/zipper for regular-->
+<script>
+	document.getElementById("form2").onchange=function() {
+		document.getElementById("form4").style.display = "none";
+		document.getElementById("form5").style.display = "none";
+		document.getElementById("form6").style.display = "none";
+		document.getElementById("form7").style.display = "none";
+		document.getElementById("form8").style.display = "none";
+	
+	choice=parseInt(document.querySelector('input[name="fit"]:checked').value);
+	
+	if(choice == 10) {
+		document.getElementById("form4").style.display = "block";
+	}
+	if(choice == 20) {
+		document.getElementById("form5").style.display = "block";
+	}
+	if(choice == 30) {
+		document.getElementById("form6").style.display = "block";
+	}
+	}
+</script>
+<!--displaying bodytype for relaxed and regular-->
+<script>
+document.getElementById("form4").onsubmit=function() {
+		document.getElementById("form7").style.display = "none";
+		document.getElementById("form8").style.display = "none";
+
+       pantsit= parseInt(document.querySelector('input[name = "pantsit"]:checked').value);
+	   bodytype = parseInt(document.querySelector('input[name = "bodytype"]:checked').value);
+	   score = pantsit + bodytype; 
+
+	   	   if(score == 3) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 541 Tapered <br /> A 541 Tapered is a jean that tapers off at the ankle, sits at the waist, and offers extra room through the seat and thigh.";
+}
+	   if(score == 4) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 505C <br /> A 505C jean sits at the waist, is slim through the thigh and has a slight tapering at the ankle.";
+}
+	   if(score == 5) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 502 <br /> A 502 jean sits below the waist, has a regular fit through the thigh and tapers off at the ankle.";
+}
+		   if(score == 6) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 511 <br /> A 511 slim jean sits below the waist and is slim from hip to ankle.";
+}	  
+return false; 
+} 
+</script>
+
+<script>
+document.getElementById("form5").onsubmit=function() {
+		document.getElementById("form7").style.display = "none";
+		document.getElementById("form8").style.display = "none";
+
+       pantsit= parseInt(document.querySelector('input[name = "pantsit"]:checked').value);
+	   score = pantsit  
+
+	   	   if(score == 2) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 550 <br /> A 550 jean is a relaxed fit that is has extra room in the thigh, is loose through the leg and sits at the waist.";
+}
+	   if(score == 3) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 569 <br /> A 569 jean is a relaxed fit that is has extra room in the thigh, is loose through the leg and sits below the waist.";
+}
+return false; 
+} 
+</script>
+
+<script>
+document.getElementById("form6").onsubmit=function() {
+		document.getElementById("form7").style.display = "none";
+		document.getElementById("form8").style.display = "none";
+		
+       zipbutt= parseInt(document.querySelector('input[name = "zipbutt"]:checked').value);
+	   bodytype = parseInt(document.querySelector('input[name = "bodytype"]:checked').value);
+	   score = zipbutt + bodytype; 
+	   
+	   	   if(score>=8) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 501 <br /> The 501 Original jean sits at the waist, has a button fly and a straight leg. It's Levi's oldest jean and has hardly changed since 1899 ";
+}
+	   if(score == 3) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 541 <br /> The 541 jean sits at the waist and offers extra room in the seat and  thigh with a zipper. This is the perfect jean if you ever find your pants gaping at the waist and hugging the thigh.";
+}
+   	   if(score == 4) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 505 <br /> The 505 jean sits at the waist and is a regular fit through the seat and thigh. The 505 is virtually the same as the 501 Original, but has a zipper instead of a button fly!";
+}
+	   if(score == 5) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 541 <br /> The 541 jean sits at the waist and offers extra room in the seat and thigh. This is the perfect jean if you ever find your pants gaping at the waist but hugging the thigh.";
+}
+  	   if(score == 6) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 501 or 505 <br /> Both the 501 and 505 sit at the waist and are a regular fit through the leg. While the 501 has a button fly, the 505 has a zipper. Choose wisely!";
+}
+
+return false; 
+} 
+</script>
+
+<script>
+	document.getElementById("form3").onchange=function() {
+		document.getElementById("form4").style.display = "none";
+		document.getElementById("form5").style.display = "none";
+		document.getElementById("form6").style.display = "none";
+		document.getElementById("form7").style.display = "none";
+		document.getElementById("form8").style.display = "none";
+	
+	choice=parseInt(document.querySelector('input[name="risewomen"]:checked').value);
+	
+	if(choice == 10) {
+		document.getElementById("form7").style.display = "block";
+	}
+	if(choice == 20) {
+		document.getElementById("form8").style.display = "block";
+	}
+	}
+</script>
+
+<script>
+document.getElementById("form7").onsubmit=function() {
+       tapering = parseInt(document.querySelector('input[name = "tapering"]:checked').value);
+	   score = tapering; 
+
+	   	   if(score == 3) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 721 <br /> A 721 is a high rise skinny jean that is slim through the hip and thigh.";
+}
+	   if(score == 4) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: Kick Flare <br /> A kick flare is a high rise flare jean that is fitted through the hip and loose through the leg. If you're going for a comfortable vintage look, this is the one! ";
+}	  
+return false; 
+} 
+</script>
+
+<script>
+document.getElementById("form8").onsubmit=function() {
+       fitwomen= parseInt(document.querySelector('input[name = "fitwomen"]:checked').value);
+	   howfit = parseInt(document.querySelector('input[name = "howfit"]:checked').value);
+	   score = fitwomen + howfit; 
+
+	   	   if(score == 12) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 311 <br /> A 311 is a mid rise skinny jean that uses elastic to shape through the hip and thigh.";
+}
+	   if(score == 13) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 711 <br /> A 711 is a mid rise skinny jean that is slim through the hip and thigh.";
+}
+	   if(score == 22) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 314 <br /> A 314 is a mid rise straight jean that uses elastic to shape through the hip and thigh.";
+}
+		   if(score == 23) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 712 <br /> A 712 is a mid rise slim jean that is slim through the hip and thigh. If you find that the 712 is too slim, try the classic 501 for more of a boyfriend fit!";
+}	
+		if(score == 32) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 315 <br /> A 315 is a mid rise bootcut jean that uses elastic to shape through the hip and thigh.";
+}  
+		if(score == 33) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 715 <br /> A 715 is a mid rise bootcut jean that is slim through the hip and thigh.";
+}
+return false; 
+} 
+</script>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

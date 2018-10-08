@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Levis Style Quiz</title>
+<style>
+#form2 {
+display: none;
+}
+
+#form3 {
+display: none;
+}
+
+#form4 {
+display:none;
+}
+
+#form5 {
+display:none;
+}
+
+#form6 {
+display:none;
+}
+
+#form7 {
+	display:none;
+}
+
+#form8 {
+	display:none;
+}
+
+</style>
+</head>
+
+<body>
+<div id="main">
+<div id="header">
+<form id="form1">
+<h2>Are you interested in men's or women's jeans?</h2>
+  <input name="image-pick" value="1" type="radio" id="one" style="display:none">
+    <label for="one">
+      <img src="menjeans.jpg">
+    </label>
+    <input name="image-pick" value="2" type="radio" id="two" style="display:none" >
+    <label for="two">
+      <img src="womenjeans.jpg" width:50%>
+    </label>    
+</form>
+    
+<form id="form2">
+<fieldset>
+<h2> MEN'S QUIZ </h2> 
+<p>What fit are you interested in?</p>
+<label><input type="radio" name="fit" id="slim" value="10" />Tapered or Slim</label>
+<label><input type="radio" name="fit" id="relaxed" value="20" />Relaxed</label>
+<label><input type="radio" name="fit" id="regular" value="30" />Regular</label>
+</fieldset>
+</form>
+
+<form id="form3" >
+<fieldset>
+<h2> WOMEN'S QUIZ</h2> 
+<p>Would you like high rise or mid rise pants?</p>
+<label><input type="radio" name="risewomen" id="highrise" value="10" />High Rise</label>
+<label><input type="radio" name="risewomen" id="midrise" value="20" />Mid Rise</label>
+</fieldset>
+</form>
+
+<form id="form7">
+<p>What kind of tapering are you looking for?</p>
+<label><input type="radio" name="tapering" id="fitted" value="3" />Fitted</label>
+<label><input type="radio" name="tapering" id="flare" value="4" />Flare</label>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<form id="form8">
+<p>What kind of fit are you looking for?</p>
+<label><input type="radio" name="fitwomen" id="skinny" value="10" />Skinny</label>
+<label><input type="radio" name="fitwomen" id="straight" value="20" />Straight</label>
+<label><input type="radio" name="fitwomen" id="bootcut" value="30" />Bootcut</label>
+<p>How would you like your pants to fit?</p>
+<label><input type="radio" name="howfit" id="shapes" value="2" />Shapes through hip and thigh</label>
+<label><input type="radio" name="howfit" id="slim" value="3" />Slim through hip and thigh</label>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<p id="grade"></p>
+<p id="grade2"></p>
+
+<script>
+	document.getElementById("form1").onchange=function() {
+		document.getElementById("form2").style.display = "none";
+		document.getElementById("form3").style.display = "none";
+	
+	choice=parseInt(document.querySelector('input[name="image-pick"]:checked').value);
+	
+
+	if(choice == 1) {
+		document.getElementById("form2").style.display = "block";
+	}
+	if (choice == 2) {
+		document.getElementById("form3").style.display = "block";
+	}
+	}
+</script>
+
+<script>
+	document.getElementById("form3").onchange=function() {
+		document.getElementById("form7").style.display = "none";
+		document.getElementById("form8").style.display = "none";
+	
+	choice=parseInt(document.querySelector('input[name="risewomen"]:checked').value);
+	
+	if(choice == 10) {
+		document.getElementById("form7").style.display = "block";
+	}
+	if(choice == 20) {
+		document.getElementById("form8").style.display = "block";
+	}
+	}
+</script>
+
+<script>
+document.getElementById("form7").onsubmit=function() {
+       tapering = parseInt(document.querySelector('input[name = "tapering"]:checked').value);
+	   score = tapering; 
+
+	   	   if(score == 3) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 721";
+}
+	   if(score == 4) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: Kick Flare";
+}	  
+return false; 
+} 
+</script>
+
+<script>
+document.getElementById("form8").onsubmit=function() {
+       fitwomen= parseInt(document.querySelector('input[name = "fitwomen"]:checked').value);
+	   howfit = parseInt(document.querySelector('input[name = "howfit"]:checked').value);
+	   score = fitwomen + howfit; 
+
+	   	   if(score == 12) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 311";
+}
+	   if(score == 13) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 711";
+}
+	   if(score == 22) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 314";
+}
+		   if(score == 23) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 712";
+}	
+		if(score == 32) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 315";
+}  
+		if(score == 33) {
+document.getElementById("grade2").innerHTML = "Your perfect Levi's pant is a: 715";
+}
+return false; 
+} 
+</script>
+
+
+
+
+

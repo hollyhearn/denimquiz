@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Levis Style Quiz</title>
+
+</head>
+
+<body>
+<div id="main">
+<div id="header">
+
+<form id="form4">
+<p>Where would you like your pants to sit?</p>
+<label><input type="radio" name="pantsit" id="atwaist" value="1" />At waist</label>
+<label><input type="radio" name="pantsit" id="below" value="3" />Below waist</label>
+<p>What best describes your body type?</p>
+<label><input type="radio" name="bodytype" id="thicc" value="2" />Large seat and/or thighs</label>
+<label><input type="radio" name="bodytype" id="average" value="3" />Average seat and/or thigh</label>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<form id="form5">
+<p>Where would you like your pants to sit?</p>
+<label><input type="radio" name="pantsit" id="atwaist" value="1" />At waist</label>
+<label><input type="radio" name="pantsit" id="below" value="3" />Below waist</label>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<form id="form6">
+<p>What do you prefer?</p>
+<label><input type="radio" name="zipbutt" id="zipper" value="1" />Zipper</label>
+<label><input type="radio" name="zipbutt" id="button" value="2" />Button</label>
+<label><input type="radio" name="zipbutt" id="either" value="3" />Either</label>
+<p>What best describes your body type?</p>
+<label><input type="radio" name="bodytype" id="thicc" value="2" />Large seat and/or thighs</label>
+<label><input type="radio" name="bodytype" id="average" value="3" />Average seat and/or thigh</label>
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+<p>Your perfect Levis pant: <span id="grade">__</span></p>
+<p id="grade2"></p>
+</div>
+
+<script>
+document.getElementById("form4").onsubmit=function() {
+       pantsit= parseInt(document.querySelector('input[name = "pantsit"]:checked').value);
+	   bodytype = parseInt(document.querySelector('input[name = "bodytype"]:checked').value);
+	   score = pantsit + bodytype; 
+
+	   	   if(score == 3) {
+document.getElementById("grade2").innerHTML = "541 Tapered";
+}
+	   if(score == 4) {
+document.getElementById("grade2").innerHTML = "505C";
+}
+	   if(score == 5) {
+document.getElementById("grade2").innerHTML = "502";
+}
+		   if(score == 6) {
+document.getElementById("grade2").innerHTML = "511";
+}	  
+
+return false; 
+} 
+</script>
+
+<script>
+document.getElementById("form5").onsubmit=function() {
+       pantsit= parseInt(document.querySelector('input[name = "pantsit"]:checked').value);
+	   score = pantsit  
+
+	   	   if(score == 1) {
+document.getElementById("grade2").innerHTML = "550";
+}
+	   if(score == 3) {
+document.getElementById("grade2").innerHTML = "569";
+}
+ 
+return false; 
+} 
+</script>
+
+<script>
+document.getElementById("form6").onsubmit=function() {
+       zipbutt= parseInt(document.querySelector('input[name = "zipbutt"]:checked').value);
+	   bodytype = parseInt(document.querySelector('input[name = "bodytype"]:checked').value);
+	   score = zipbutt + bodytype; 
+	   
+	   	   if(score == 2) {
+document.getElementById("grade2").innerHTML = "501";
+}
+	   if(score == 3) {
+document.getElementById("grade2").innerHTML = "541";
+}
+   	   if(score == 4) {
+document.getElementById("grade2").innerHTML = "505";
+}
+	   if(score == 5) {
+document.getElementById("grade2").innerHTML = "541";
+}
+  	   if(score == 6) {
+document.getElementById("grade2").innerHTML = "501 or 505";
+}
+
+return false; 
+} 
+</script>
+
+
+</div>
+</body>
+</html>

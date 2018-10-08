@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Levis Style Quiz</title>
+<style>
+#form2 {
+display: none;
+}
+
+#form3 {
+display: none;
+}
+
+#form4 {
+display:none;
+}
+
+#form5 {
+display:none;
+}
+
+#form6 {
+display:none;
+}
+</style>
+</head>
+
+<body>
+<div id="main">
+<div id="header">
+<form id="form1">
+<h2>Are you interested in men's or women's jeans?</h2>
+  <input name="image-pick" value="1" type="radio" id="one" style="display:none">
+    <label for="one">
+      <img src="menjeans.jpg">
+    </label>
+    <input name="image-pick" value="2" type="radio" id="two" style="display:none" >
+    <label for="two">
+      <img src="womenjeans.jpg" width:50%>
+    </label>    
+</form>
+    
+<form id="form2">
+<fieldset>
+<h2> MEN'S QUIZ </h2> 
+<p>What fit are you interested in?</p>
+<label><input type="radio" name="fit" id="slim" value="10" />Tapered or Slim</label>
+<label><input type="radio" name="fit" id="relaxed" value="20" />Relaxed</label>
+<label><input type="radio" name="fit" id="regular" value="30" />Regular</label>
+</fieldset>
+</form>
+
+<form id="form4">
+<p>Where would you like your pants to sit?</p>
+<label><input type="radio" name="pantsit" id="atwaist" value="1" />At waist</label>
+<label><input type="radio" name="pantsit" id="below" value="3" />Below waist</label>
+</form>
+
+<form id="form5">
+<p>What best describes your body type?</p>
+<label><input type="radio" name="bodytype" id="thicc" value="2" />Large seat and/or thighs</label>
+<label><input type="radio" name="bodytype" id="average" value="3" />Average seat and/or thigh</label>
+</form>
+
+<form id="form6"
+<p>What do you prefer?</p>
+<label><input type="radio" name="zipbutt" id="zipper" value="1" />Zipper</label>
+<label><input type="radio" name="zipbutt" id="button" value="2" />Button</label>
+<label><input type="radio" name="zipbutt" id="either" value="3" />Either</label>
+</form>
+
+<button type="submit" value="Submit">Submit</button>
+</fieldset>
+<p>Your perfect Levis pant: <span id="grade">__</span></p>
+<p id="grade2"></p>
+</form>
+
+<!--end of mens quiz code-->
+
+<form id="form3" >
+<fieldset>
+<h2> WOMEN'S QUIZ</h2> 
+<p>1.Do you like low-rise or high-rise pants?</p>
+<label><input type="radio" name="rise" id="highrise" value="0" />High-rise</label>
+<label><input type="radio" name="rise" id="midrise" value="0" />Mid-rise</label>
+
+<button type="submit" value="Submit">Submit</button>
+</fieldset>
+<p>Your perfect Levis pant: <span id="grade1">__</span></p>
+<p id="grade3"></p>
+</form>
+
+<!--end womens quiz code-->
+
+<!--mens or womens choice-->
+<script>
+	document.getElementById("form1").onchange=function() {
+		document.getElementById("form2").style.display = "none";
+		document.getElementById("form3").style.display = "none";
+	
+	choice=parseInt(document.querySelector('input[name="image-pick"]:checked').value);
+	
+
+	if(choice == 1) {
+		document.getElementById("form2").style.display = "block";
+	}
+	if (choice == 2) {
+		document.getElementById("form3").style.display = "block";
+	}
+	}
+</script>
+<!--Choosing fit and displaying rise for slim/relaxed and button/zipper for regular-->
+<script>
+	document.getElementById("form2").onchange=function() {
+		document.getElementById("form4").style.display = "none";
+		document.getElementById("form5").style.display = "none";
+		document.getElementById("form6").style.display = "none";
+	
+	choice=parseInt(document.querySelector('input[name="fit"]:checked').value);
+	
+
+	if(choice <=20) {
+		document.getElementById("form4").style.display = "block";
+	}
+	else {
+		document.getElementById("form6").style.display = "block";
+	}
+	}
+</script>
+
+<script>
+	document.getElementById("form4").onchange=function() {
+		document.getElementById("form5").style.display = "none";
+		document.getElementById("form6").style.display = "none";
+	
+	choice=parseInt(document.querySelector('input[name="pantsit"]:checked').value);
+	
+
+	if(choice <=3) {
+		document.getElementById("form5").style.display = "block";
+	}
+	}
+</script>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
